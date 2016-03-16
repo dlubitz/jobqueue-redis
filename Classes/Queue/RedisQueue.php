@@ -184,6 +184,11 @@ class RedisQueue implements \Flowpack\JobQueue\Common\Queue\QueueInterface {
 		if (isset($decodedMessage['identifier'])) {
 			$message->setIdentifier($decodedMessage['identifier']);
 		}
+
+		if (isset($decodedMessage['executionCount'])) {
+			$message->setExecutionCount($decodedMessage['executionCount']);
+		}
+
 		$message->setOriginalValue($value);
 		return $message;
 	}
